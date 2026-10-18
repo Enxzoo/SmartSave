@@ -1,0 +1,116 @@
+/* =========================================================
+   SmartSave - Responsive rules for the Expense section
+========================================================= */
+
+@media (max-width: 1080px) {
+    .ss-cards-row {
+        grid-template-columns: 1fr 1fr;
+    }
+    .ss-card-highlight {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 900px) {
+    .ss-burger {
+        display: inline-flex;
+    }
+
+    .ss-sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        transform: translateX(-100%);
+        transition: transform 0.25s ease;
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    }
+
+    .ss-sidebar.ss-sidebar-open {
+        transform: translateX(0);
+        box-shadow: 20px 0 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .ss-sidebar-backdrop {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 15, 30, 0.35);
+        z-index: 999;
+    }
+
+    .ss-sidebar-backdrop.ss-backdrop-visible {
+        display: block;
+    }
+
+    .ss-main {
+        padding: 20px 18px 50px;
+    }
+
+    .ss-topbar {
+        align-items: center;
+    }
+
+    .ss-topbar > div:not(.ss-topbar-actions) {
+        order: 2;
+        width: 100%;
+    }
+}
+
+@media (max-width: 700px) {
+    .ss-cards-row {
+        grid-template-columns: 1fr;
+    }
+
+    .ss-topbar-actions {
+        width: 100%;
+    }
+
+    .ss-search {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .ss-table thead {
+        display: none;
+    }
+
+    .ss-table,
+    .ss-table tbody,
+    .ss-table tr,
+    .ss-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .ss-table tbody tr {
+        border-bottom: 1px solid var(--ss-border);
+        padding: 12px 0;
+    }
+
+    .ss-table tbody td {
+        border-bottom: none;
+        padding: 6px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .ss-table tbody td::before {
+        content: attr(data-label);
+        font-size: 11.5px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: var(--ss-text-muted);
+        margin-right: 12px;
+    }
+
+    .ss-table tbody td.text-center::before,
+    .ss-table tbody td:first-child::before {
+        content: none;
+    }
+
+    .ss-actions {
+        justify-content: flex-end;
+        width: 100%;
+    }
+}
